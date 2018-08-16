@@ -123,10 +123,10 @@ footer {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 36em;
 }
 
-@media (max-width: 48em) {
+@media (max-width: 36em) {
   .cover-container {
     width: 100%;
   }
