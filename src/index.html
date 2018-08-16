@@ -15,15 +15,22 @@
 
     <!-- Custom styles for this template -->
     <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   </head>
   <body>
-    <main class="container cover-container"
-      <div class="row justify-content-center">
+    <script src="index.js" ></script>
+
+    <main class="container cover-container">
         <div class="col-sm-12">
           <h1 class="cover-heading">Look up!</h1>
           <p class="lead">What can you see?</p>
         </div>
-      </div>
+        <div class="search-box">
+          <input type="text" class="form-control form-control-lg" id="search-input" placeholder="Search">
+        </div>
+          <datalist id="suggestions_list">
+          </datalist>
+          <button class="btn btn-primary search-btn" onclick="fetch();">Go</button>
     </main>
 
     <footer>
@@ -31,6 +38,11 @@
         links here?
       </div>
     </footer>
+
+    <div id="search-details" class="overlay">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeDetails();">&lt;</a>
+        <div id="bigcrunch" class="overlay-content"></div>
+    </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
