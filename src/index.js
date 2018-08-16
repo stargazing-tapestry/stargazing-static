@@ -217,7 +217,7 @@ function fetch() {
 function showZodiacContent(content) {
   const contentDiv = $('#zodiac-content');
   contentDiv.append(`<button class="activate_button" onclick="sendToServer();"><img class="activate_button_img" src='img/activate-button.png'/></button>`);
-  contentDiv.append(`<div class="align-center"><img class='constellation_img' src='${content.image}'/></div>`);
+  contentDiv.append(`<div class="align-center"><img class='constellation_img' src='img/${content.image}'/></div>`);
   contentDiv.append(`<h2>${content.title}</h2>`);
   contentDiv.append(`<div class="details-text"><p>Duration: ${content.duration}</p><p>${content.text[0]}</p><p>${content.text[1]}</p></div>`);
 }
@@ -297,7 +297,7 @@ const zodiacContent = {
       'Aries is the first astrological sign in the zodiac, spanning the first 30 degrees. The symbol of the ram is based on the Chrysomallus, the flying ram that provided the Golden Fleece.',
       "Aries the Ram has retained importance despite being a rather small constellation. It traditionally leads the 'flock' of the Zodiac. In ancient Greek, the Sun was placed among its stars at the Vernal Equinox, which then marked the start of the calendar year as well as the arrival of Spring.",
     ],
-    image: 'aries.png',
+    image: 'aries.gif',
     hoverImage: 'aries-hover.png',
   },
   taurus: {
@@ -360,15 +360,15 @@ const zodiacContent = {
     image: 'libra.png',
     hoverImage: 'libra-hover.png',
   },
-  scorpio: {
+  scorpius: {
     title: 'Scorpio',
     duration: 'October 24 - November 22',
     text: [
       'Scorpio is the eighth astrological sign in the Zodiac. It spans the 210–240th degree of the zodiac.',
       'In Greek mythology, Scorpius was a giant scorpion sent by Gaea the Earth to slay the giant Orion when he threatened to slay all the beasts of the world. Afterwards, Orion and the Scorpion were placed amongst the stars as constellations. The two opponents are never seen in the sky at the same time - for as one constellation rises, the other sets.',
     ],
-    image: 'libra.png',
-    hoverImage: 'libra-hover.png',
+    image: 'scorpio.png',
+    hoverImage: 'scorpio-hover.png',
   },
   sagittarius: {
     title: 'Sagittaruis',
@@ -380,7 +380,7 @@ const zodiacContent = {
     image: 'sagittaruis.png',
     hoverImage: 'sagittaruis-hover.png',
   },
-  capricorn: {
+  capricornus: {
     title: 'Capricorn',
     duration: 'December 23 - January 20',
     text: [
@@ -397,7 +397,7 @@ const zodiacContent = {
       'Aquarius is the eleventh astrological sign in the Zodiac, originating from the constellation Aquarius. The water carrier depicted is Ganymede, a beautiful Phrygian youth.',
       "Ganymede was the son of Tros, king of Troy. While tending to his father's flocks on Mount Ida, Ganymede was spotted by Jupiter. The king of gods became enamored of the boy and flew down to the mountain in the form of a large bird, whisking Ganymede away to the heavens. Ever since, the boy has served as cupbearer to the gods.",
     ],
-    image: 'aquarius.png',
+    image: 'aquarius.gif',
     hoverImage: 'aquarius-hover.png',
   },
   pisces: {
