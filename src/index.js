@@ -104,6 +104,7 @@ function autocomplete(inp, arr) {
     /* close any already open lists of autocompleted values */
     closeAllLists();
     if (!val) { return false; }
+    showClearButton((val.length > 0));
     currentFocus = -1;
     /* create a DIV element that will contain the items (values): */
     a = document.createElement('DIV');
@@ -158,6 +159,8 @@ function autocomplete(inp, arr) {
         /* and simulate a click on the "active" item: */
         if (x) x[currentFocus].click();
       }
+    } else if (e.keyCode == 8 || e.keyCode == 16) {
+      if (this.value.length == 1) showClearButton(false);
     }
   });
   function addActive(x) {
@@ -240,6 +243,18 @@ function closeDetails() {
   document.getElementById('bigcrunch').innerHTML = '';
   document.getElementById('bigcrunch').classList.remove("bigcrunch-visible");
   document.getElementById('search-details').style.width = '0%';
+}
+
+function clearSearchText() {
+  $('#search-input').val('');
+  showClearButton(false);
+}
+
+function showClearButton(show) {
+  if(show)
+    $('.close-icon').show();
+  else
+    $('.close-icon').hide();
 }
 
 function getRandomColor() {
