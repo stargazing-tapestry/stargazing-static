@@ -220,3 +220,23 @@ iframe {
 .close-btn {
   text-align: left;
 }
+
+@media only screen and (max-width: 1800px)
+.zodiac-image {
+    max-width: 30%;
+    margin-left: 17%;
+}
+
+@media only screen and (max-width: 2300px)
+.zodiac-image {
+    max-width: 25%;
+    margin-left: 21%;
+}
+
+.zodiac-image {
+    max-width: 30%;
+    max-height: auto;
+    display: inline-block;
+    padding: 0;
+    margin-left: 17%;
+}

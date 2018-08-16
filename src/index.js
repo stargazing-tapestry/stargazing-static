@@ -197,24 +197,59 @@ const TBC_URL = "https://earlyaccess.bigcrunch.io/TheWebServer/odo/dGJjXzMxMTMzO
 function fetch() {
     const theSearchTerm = document.getElementById("search-input");
 
-    openDetails();
     var content = zodiacContent[theSearchTerm.value.toLowerCase()]
     if (content) {
       showZodiacContent(content)
     } else {
       var iframe = createIFrame(theSearchTerm.value);
-
       document.getElementById('bigcrunch').innerHTML = '';
       document.getElementById('bigcrunch').appendChild(iframe);
     }
+    openDetails();
 }
 
 function showZodiacContent(content) {
   var contentDiv = $("#zodiac-content");
-  contentDiv.append("<h1>" + content.title + "</h1>");
-  contentDiv.append("<p>Duration: " + content.duration + "</p>");
-  contentDiv.append("<p>" + content.text[0] + "</p>");
-  contentDiv.append("<p>" + content.text[1] + "</p>");
+  contentDiv.empty();
+  var zodiacDiv = $('<div />', {
+    class: 'zodiac'
+  }).appendTo(contentDiv);
+  zodiacDiv.append("<h2>" + content.title + "</h2>");
+  var zodiacContent = $('<div />', { class: 'zodiac-content' })
+    .appendTo(zodiacDiv);
+  zodiacContent.append(zodiacImage(content));
+  var zodiacDetails = $('<div />', { class: 'zodiac-details'})
+    .appendTo(zodiacContent);
+  zodiacDetails.append(zodiacDuration(content));
+  zodiacDetails.append(zodiacInfo(content));
+}
+
+function zodiacImage(content) {
+  var img = $('<img />');
+  img.attr('class', 'zodiac-image');
+  img.attr('src', 'images/' + content.image);
+  img.attr('alt', content.title);
+  img.attr('onmouseover', "this.src='images/" + content.hoverImage + "'");
+  img.attr('onmouseout', "this.src='images/" + content.image + "'");
+  return img;
+}
+
+function zodiacDuration(content) {
+  var div = $('<div />', { class: 'zodiac-duration' });
+  $('<div />', { class: 'zodiac-duration-title', text: 'Duration'})
+    .appendTo(div);
+  $('<div />', { class: 'zodiac-duration-value', text: content.duration })
+    .appendTo(div);
+
+  return div;
+}
+
+function zodiacInfo(content) {
+  var div = $('<div />', { class: 'zodiac-info' });
+  $('<p />', { text: content.text[0]}).appendTo(div);
+  $('<p />', { text: content.text[1]}).appendTo(div);
+
+  return div;
 }
 
 // URL ENCODE!
@@ -235,6 +270,7 @@ function openDetails() {
 
 function closeDetails() {
   document.getElementById("search-details").style.width = "0%";
+  $("#zodiac-content").empty();
 }
 
 function getRandomColor() {
