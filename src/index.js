@@ -1,146 +1,195 @@
-window.addEventListener("load", function() {
-  // Add a keyup event listener to our input element
-  var name_input = document.getElementById('search-input');
-  name_input.addEventListener("keyup", function(event){hinter(event)});
-});
-
-// Autocomplete for form
-function hinter(event) {
-
-  // retireve the input element
-  var input = event.target;
-
-  // retrieve the datalist element
-  var suggestions_list = document.getElementById('suggestions_list');
-
-  // minimum number of characters before we start to generate suggestions
-  var min_characters = 0;
-
-  if ( input.value.length < min_characters ) {
-      return;
-  } else {
-
-    var response = findSuggestions(input.value);
-
-    // clear any previously loaded options in the datalist
-    suggestions_list.innerHTML = "";
-
-    response.forEach(function(item) {
-        // Create a new <option> element.
-        var option = document.createElement('option');
-        option.value = item;
-
-        // attach the option to the datalist element
-        suggestions_list.appendChild(option);
-    });
-  }
-}
-
-function findSuggestions(input) {
-  let results = [];
-  const inputUpperCase = input.toUpperCase();
-
-  const array =
+const CONSTELLATIONS =
     [
-      { name: "Andromeda",
-        name: "Antlia",
-        name: "Apus",
-        name: "Aquarius",
-        name: "Aquila",
-        name: "Ara",
-        name: "Aries",
-        name: "Auriga",
-        name: "Bootes",
-        name: "Caelum",
-        name: "Camelopardus",
-        name: "Cancer",
-        name: "Canes Venatici",
-        name: "Canis Major",
-        name: "Canis Minor",
-        name: "Capricornus",
-        name: "Carina",
-        name: "Cassiopeia",
-        name: "Centaurus",
-        name: "Cephus",
-        name: "Cetus",
-        name: "Chamaeleon",
-        name: "Circinus",
-        name: "Columba",
-        name: "Coma Berenices",
-        name: "Corona Australis",
-        name: "Corona Borealis N",
-        name: "Corvus",
-        name: "Crater",
-        name: "Crux",
-        name: "Cygnus",
-        name: "Delphinus",
-        name: "Dorado",
-        name: "Draco",
-        name: "Equuleus",
-        name: "Eridanus",
-        name: "Fornax",
-        name: "Gemini",
-        name: "Grus",
-        name: "Hercules",
-        name: "Horologium",
-        name: "Hydra",
-        name: "Hydrus",
-        name: "Indus",
-        name: "Lacerta",
-        name: "Leo",
-        name: "Leo Minor",
-        name: "Lepus",
-        name: "Libra",
-        name: "Lupus",
-        name: "Lynx",
-        name: "Lyra",
-        name: "Mensa",
-        name: "Microscopium",
-        name: "Monoceros",
-        name: "Musca",
-        name: "Norma",
-        name: "Octans",
-        name: "Ophiuchus",
-        name: "Orion",
-        name: "Pavo",
-        name: "Pegasus",
-        name: "Perseus",
-        name: "Phoenix",
-        name: "Pictor",
-        name: "Pisces",
-        name: "Piscis Austrinis",
-        name: "Puppis",
-        name: "Pyxis (=Malus)",
-        name: "Reticulum",
-        name: "Sagitta",
-        name: "Sagittarius",
-        name: "Scorpius",
-        name: "Sculptor",
-        name: "Scutum",
-        name: "Serpens",
-        name: "Sextans",
-        name: "Taurus",
-        name: "Telescopium",
-        name: "Triangulum",
-        name: "Triangulum Australe",
-        name: "Tucana",
-        name: "Ursa Major",
-        name: "Ursa Minor",
-        name: "Vela",
-        name: "Virgo",
-        name: "Volans",
-        name: "Vulpecula",
-      },
+      { name: "Andromeda" },
+      { name: "Antlia" },
+      { name: "Apus" },
+      { name: "Aquarius" },
+      { name: "Aquila" },
+      { name: "Ara" },
+      { name: "Aries" },
+      { name: "Auriga" },
+      { name: "Bootes" },
+      { name: "Caelum" },
+      { name: "Camelopardus" },
+      { name: "Cancer" },
+      { name: "Canes Venatici" },
+      { name: "Canis Major" },
+      { name: "Canis Minor" },
+      { name: "Capricornus" },
+      { name: "Carina" },
+      { name: "Cassiopeia" },
+      { name: "Centaurus" },
+      { name: "Cephus" },
+      { name: "Cetus" },
+      { name: "Chamaeleon" },
+      { name: "Circinus" },
+      { name: "Columba" },
+      { name: "Coma Berenices" },
+      { name: "Corona Australis" },
+      { name: "Corona Borealis N" },
+      { name: "Corvus" },
+      { name: "Crater" },
+      { name: "Crux" },
+      { name: "Cygnus" },
+      { name: "Delphinus" },
+      { name: "Dorado" },
+      { name: "Draco" },
+      { name: "Equuleus" },
+      { name: "Eridanus" },
+      { name: "Fornax" },
+      { name: "Gemini" },
+      { name: "Grus" },
+      { name: "Hercules" },
+      { name: "Horologium" },
+      { name: "Hydra" },
+      { name: "Hydrus" },
+      { name: "Indus" },
+      { name: "Lacerta" },
+      { name: "Leo" },
+      { name: "Leo Minor" },
+      { name: "Lepus" },
+      { name: "Libra" },
+      { name: "Lupus" },
+      { name: "Lynx" },
+      { name: "Lyra" },
+      { name: "Mensa" },
+      { name: "Microscopium" },
+      { name: "Monoceros" },
+      { name: "Musca" },
+      { name: "Norma" },
+      { name: "Octans" },
+      { name: "Ophiuchus" },
+      { name: "Orion" },
+      { name: "Pavo" },
+      { name: "Pegasus" },
+      { name: "Perseus" },
+      { name: "Phoenix" },
+      { name: "Pictor" },
+      { name: "Pisces" },
+      { name: "Piscis Austrinis" },
+      { name: "Puppis" },
+      { name: "Pyxis (=Malus)" },
+      { name: "Reticulum" },
+      { name: "Sagitta" },
+      { name: "Sagittarius" },
+      { name: "Scorpius" },
+      { name: "Sculptor" },
+      { name: "Scutum" },
+      { name: "Serpens" },
+      { name: "Sextans" },
+      { name: "Taurus" },
+      { name: "Telescopium" },
+      { name: "Triangulum" },
+      { name: "Triangulum Australe" },
+      { name: "Tucana" },
+      { name: "Ursa Major" },
+      { name: "Ursa Minor" },
+      { name: "Vela" },
+      { name: "Virgo" },
+      { name: "Volans" },
+      { name: "Vulpecula" },
     ];
 
-  array.map(({ name }) => {
-      if (name.toUpperCase().indexOf(inputUpperCase) > -1) {
-        results.push(name);
+window.addEventListener("load", function() {
+  autocomplete(document.getElementById("search-input"), CONSTELLATIONS.map(x => x.name ));
+});
+
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+              fetch();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
       }
     }
-  );
-
-  return results;
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+      });
 }
 
 const TBC_URL = "https://earlyaccess.bigcrunch.io/TheWebServer/odo/dGJjXzMxMTMzODRfMzExMTcxNw==";
@@ -148,24 +197,59 @@ const TBC_URL = "https://earlyaccess.bigcrunch.io/TheWebServer/odo/dGJjXzMxMTMzO
 function fetch() {
     const theSearchTerm = document.getElementById("search-input");
 
-    openDetails();
     var content = zodiacContent[theSearchTerm.value.toLowerCase()]
     if (content) {
       showZodiacContent(content)
     } else {
       var iframe = createIFrame(theSearchTerm.value);
-
       document.getElementById('bigcrunch').innerHTML = '';
       document.getElementById('bigcrunch').appendChild(iframe);
     }
+    openDetails();
 }
 
 function showZodiacContent(content) {
   var contentDiv = $("#zodiac-content");
-  contentDiv.append("<h1>" + content.title + "</h1>");
-  contentDiv.append("<p>Duration: " + content.duration + "</p>");
-  contentDiv.append("<p>" + content.text[0] + "</p>");
-  contentDiv.append("<p>" + content.text[1] + "</p>");
+  contentDiv.empty();
+  var zodiacDiv = $('<div />', {
+    class: 'zodiac'
+  }).appendTo(contentDiv);
+  zodiacDiv.append("<h2>" + content.title + "</h2>");
+  var zodiacContent = $('<div />', { class: 'zodiac-content' })
+    .appendTo(zodiacDiv);
+  zodiacContent.append(zodiacImage(content));
+  var zodiacDetails = $('<div />', { class: 'zodiac-details'})
+    .appendTo(zodiacContent);
+  zodiacDetails.append(zodiacDuration(content));
+  zodiacDetails.append(zodiacInfo(content));
+}
+
+function zodiacImage(content) {
+  var img = $('<img />');
+  img.attr('class', 'zodiac-image');
+  img.attr('src', 'images/' + content.image);
+  img.attr('alt', content.title);
+  img.attr('onmouseover', "this.src='images/" + content.hoverImage + "'");
+  img.attr('onmouseout', "this.src='images/" + content.image + "'");
+  return img;
+}
+
+function zodiacDuration(content) {
+  var div = $('<div />', { class: 'zodiac-duration' });
+  $('<div />', { class: 'zodiac-duration-title', text: 'Duration'})
+    .appendTo(div);
+  $('<div />', { class: 'zodiac-duration-value', text: content.duration })
+    .appendTo(div);
+
+  return div;
+}
+
+function zodiacInfo(content) {
+  var div = $('<div />', { class: 'zodiac-info' });
+  $('<p />', { text: content.text[0]}).appendTo(div);
+  $('<p />', { text: content.text[1]}).appendTo(div);
+
+  return div;
 }
 
 // URL ENCODE!
@@ -186,6 +270,7 @@ function openDetails() {
 
 function closeDetails() {
   document.getElementById("search-details").style.width = "0%";
+  $("#zodiac-content").empty();
 }
 
 function getRandomColor() {

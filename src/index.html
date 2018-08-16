@@ -20,24 +20,20 @@
     <script src="index.js" ></script>
     <div class="bg">
 
-    <main class="container cover-container">
-        <div class="col-sm-12">
-          <h1 class="cover-heading">Look up!</h1>
+    <form autocomplete="false">
+      <main class="container cover-container">
+          <div class="col-sm-12">
+            <h1 class="cover-heading">Look up!</h1>
 
-        <p class="lead">What names do you recognise?</p>
+          <p class="lead">What names do you recognise?</p>
 
-        </div>
-        <div class="search-box">
-          <input type="text" class="form-control form-control-lg" id="search-input" placeholder="Search the sky...">
-        </div>
-          <datalist id="suggestions_list">
-          </datalist>
-          <button class="btn btn-primary search-btn" onclick="fetch();">Go</button>
-        <div>
+          </div>
           <button class="btn btn-primary search-btn" onclick="sendToServer();">Light Up the Sky</button>
-        </div>
-    </main>
-  </div>
+          <div class="search-box autocomplete">
+            <input type="text" class="form-control form-control-lg search" id="search-input" placeholder="Search the sky...">
+          </div>
+      </main>
+    </form>
 
     <footer>
       <div class="container cover-container">
