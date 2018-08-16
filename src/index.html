@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Stargazing: an interactive knitted tapestry">
+    <meta name="description" content="Look up into the sky! What constellations do you recognise? Search for a constellation to learn more.">
     <meta name="author" content="Sarah Spencer">
     <link rel="icon" href="favicon.ico">
 
@@ -15,7 +15,6 @@
 
     <!-- Custom styles for this template -->
     <link href="styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   </head>
   <body>
     <script src="index.js" ></script>
@@ -23,19 +22,31 @@
     <main class="container cover-container">
         <div class="col-sm-12">
           <h1 class="cover-heading">Look up!</h1>
-          <p class="lead">What can you see?</p>
+          <p class="lead">What names do you recognise?</p>
+
+          <div class="search-box">
+            <input type="text" class="form-control form-control-lg" id="search-input" placeholder="Search the sky...">
+          </div>
+            <datalist id="suggestions_list">
+            </datalist>
+            <button class="btn btn-primary search-btn" onclick="fetch();">Go</button>
+
         </div>
-        <div class="search-box">
-          <input type="text" class="form-control form-control-lg" id="search-input" placeholder="Search">
-        </div>
-          <datalist id="suggestions_list">
-          </datalist>
-          <button class="btn btn-primary search-btn" onclick="fetch();">Go</button>
     </main>
 
     <footer>
       <div class="container cover-container">
-        links here?
+        <div class="row">
+          <div class="col-sm-4">
+            <img class="nav_icon" src="img/search_white.svg" alt="Search"/>
+          </div>
+          <div class="col-sm-4">
+            <img class="nav_icon" src="img/funfacts_white.svg" alt="Fun Facts"/>
+          </div>
+          <div class="col-sm-4">
+            <img class="nav_icon" src="img/about_white.svg" alt="About Us"/>
+          </div>
+        </div>
       </div>
     </footer>
 
