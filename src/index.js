@@ -175,9 +175,33 @@ function closeDetails() {
   document.getElementById("search-details").style.width = "0%";
 }
 
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function selectedConstellation() {
+  var constellation = $('#search-input').val();
+  return constellation ? constellation : 'a'
+}
+
 function sendToServer() {
-  $.post('/starGaze', {
-    'constellation': 'a',
-    'colour': '#ff3311'
-  });
+  var constellation = selectedConstellation();
+  var colour = getRandomColor();
+
+  console.log("Lighting up " + constellation + " with colour " + colour);
+
+  $.ajax({
+    type: 'POST',
+    url: '/starGaze',
+    data: JSON.stringify({
+      'constellation': constellation,
+      'colour': colour
+    }),
+    contentType: "application/json; charset=utf-8"
+  })
 }
