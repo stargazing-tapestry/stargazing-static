@@ -20,7 +20,7 @@
     <script src="index.js" ></script>
     <div class="bg">
 
-    <form autocomplete="false">
+    <form autocomplete="off">
       <main class="container cover-container">
           <div class="col-sm-12">
             <h1 class="cover-heading">Look up!</h1>
@@ -28,10 +28,11 @@
           <p class="lead">What names do you recognise?</p>
 
           </div>
-          <button class="btn btn-primary search-btn" onclick="sendToServer();">Light Up the Sky</button>
           <div class="search-box autocomplete">
             <input type="text" class="form-control form-control-lg search" id="search-input" placeholder="Search the sky...">
           </div>
+          <p class="or">or</p>
+          <button class="btn btn-primary search-btn" onclick="return sendToServer();">Light up the sky</button>
       </main>
     </form>
 
@@ -39,22 +40,22 @@
       <div class="container cover-container">
         <div class="row">
           <div class="col-4">
-            <img class="nav_icon" src="img/search_white.svg" alt="Search"/>
+            <a href="index.html"><img class="nav_icon" src="img/search_white.svg" alt="Search"/></a>
           </div>
           <div class="col-4">
-            <img class="nav_icon" src="img/funfacts_white.svg" alt="Fun Facts"/>
+            <a href="facts.html"><img class="nav_icon" src="img/funfacts_white.svg" alt="Fun Facts"/></a>
           </div>
           <div class="col-4">
-            <img class="nav_icon" src="img/about_white.svg" alt="About Us"/>
+            <a href="about.html"><img class="nav_icon" src="img/about_white.svg" alt="About Us"/></a>
           </div>
         </div>
       </div>
     </footer>
 
     <div id="search-details" class="overlay">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeDetails();">&lt;</a>
-        <div id="bigcrunch" class="overlay-content"></div>
-        <div id="zodiac-content" class="overlay-content"></div>
+        <button class="close-btn" onclick="closeDetails();"><img style="width: 15px; margin: 0 15px;" src="img/back-arrow.png"/></button>
+        <div id="bigcrunch" class="overlay-content container cover-container"></div>
+        <div id="zodiac-content" class="overlay-content container cover-container"></div>
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
