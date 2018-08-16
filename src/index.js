@@ -174,3 +174,10 @@ function openDetails() {
 function closeDetails() {
   document.getElementById("search-details").style.width = "0%";
 }
+
+function sendToServer() {
+  $.post('/starGaze', {
+    'constellation': 'a',
+    'colour': '#ff3311'
+  });
+}
