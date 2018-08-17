@@ -298,7 +298,6 @@ const zodiacContent = {
       "Aries the Ram has retained importance despite being a rather small constellation. It traditionally leads the 'flock' of the Zodiac. In ancient Greek, the Sun was placed among its stars at the Vernal Equinox, which then marked the start of the calendar year as well as the arrival of Spring.",
     ],
     image: 'aries.gif',
-    hoverImage: 'aries-hover.png',
   },
   taurus: {
     title: 'Taurus',
@@ -307,8 +306,7 @@ const zodiacContent = {
       'Taurus is the second astrological sign in the present zodiac. It spans the 30–60th degree of the zodiac. The symbol of the bull is based on the Cretan Bull, the white bull that fathered the Minotaur who was killed by Theseus.',
       'It is an ancient constellation, created by the Sumarians around 3000 B.C., to mark where the sun would be in the sky at the Spring Equinox. At that time the bull was a powerful fertility symbol, so was a very appropriate symbol for the return of Spring.',
     ],
-    image: 'taurus.png',
-    hoverImage: 'taurus-hover.png',
+    image: 'taurus.gif',
   },
   gemini: {
     title: 'Gemini',
@@ -317,8 +315,7 @@ const zodiacContent = {
       'Gemini is the third astrological sign in the zodiac, spaning the 60–90th degree of the zodiac. Gemini is represented by The Twins Castor and Pollux. The symbol of the twins is based on the Dioscuri, two mortals that were granted shared godhood after death.',
       'The constellation has been known as the twins since ancient times but the name Gemini is thought to originate with the Romans.',
     ],
-    image: 'taurus.png',
-    hoverImage: 'taurus-hover.png',
+    image: 'taurus.gif',
   },
   cancer: {
     title: 'Cancer',
@@ -327,8 +324,7 @@ const zodiacContent = {
       'Cancer is the fourth astrological sign, and spans between 90 and 120 degrees of celestial longitude. The symbol of the crab is based on the Karkinos, a giant crab that harassed Heracles during his fight with the Hydra.',
       "Cancer the Crab is the faintest of the Zodiac constellations, but it once had a position of importance in the sky. During the time of ancient Greece the Sun reached it's most northerly position in the sky in Cancer, and this is why the Tropic of Cancer was named so.",
     ],
-    image: 'cancer.png',
-    hoverImage: 'cancer-hover.png',
+    image: 'cancer.gif',
   },
   leo: {
     title: 'Leo',
@@ -337,8 +333,7 @@ const zodiacContent = {
       'Leo is the fifth astrological sign in the zodiac, spans the 120th to 150th degree of celestial longitude. The symbol of the lion is based on the Nemean lion, a lion with an impenetrable hide.',
       'In Greek mythology, Leo represented the Nemean Lion, which came down to Earth from the Moon and rampaged across the country-side until Hercules killed and skinned it as one of his Twelve Tasks. Zeus then returned the lion to the stars.',
     ],
-    image: 'leo.png',
-    hoverImage: 'leo-hover.png',
+    image: 'leo.gif',
   },
   virgo: {
     title: 'Virgo',
@@ -347,8 +342,7 @@ const zodiacContent = {
       'Virgo is the sixth astrological sign in the Zodiac, and the second-largest constellation. It spans the 150-180th degree of the zodiac.',
       'Virgo was drawn in the Egyptian zodiac and was said to represent the goddess Isis. To the Romans she was Astrea, the goddess of Justice, holding the Scales of Libra in her hand. The Greeks connected her with Ceres and Persephone, from a well known myth that describes the cycle of the harvest.',
     ],
-    image: 'virgo.png',
-    hoverImage: 'virgo-hover.png',
+    image: 'virgo.gif',
   },
   libra: {
     title: 'Libra',
@@ -357,8 +351,7 @@ const zodiacContent = {
       'Libra is the seventh astrological sign in the Zodiac. It spans the 180–210th degree of the zodiac, between 180 and 207.25 degree of celestial longitude.',
       'The Scales were held by the Roman goddess of Justice, Astreae (Virgo) who lies directly to the west of Libra. She would use the Scales to weigh the souls of men on their way to the Underworld, to detemine whether they would have eternal pleasure or pain.',
     ],
-    image: 'libra.png',
-    hoverImage: 'libra-hover.png',
+    image: 'libra.gif',
   },
   scorpius: {
     title: 'Scorpio',
@@ -367,8 +360,7 @@ const zodiacContent = {
       'Scorpio is the eighth astrological sign in the Zodiac. It spans the 210–240th degree of the zodiac.',
       'In Greek mythology, Scorpius was a giant scorpion sent by Gaea the Earth to slay the giant Orion when he threatened to slay all the beasts of the world. Afterwards, Orion and the Scorpion were placed amongst the stars as constellations. The two opponents are never seen in the sky at the same time - for as one constellation rises, the other sets.',
     ],
-    image: 'scorpio.png',
-    hoverImage: 'scorpio-hover.png',
+    image: 'scorpio.gif',
   },
   sagittarius: {
     title: 'Sagittaruis',
@@ -377,8 +369,7 @@ const zodiacContent = {
       'Sagittarius is the ninth astrological sign, which spans between 240–270th degrees of the zodiac.',
       "The symbol of the archer is based on the centaur Chiron, who mentored the Greek hero Achilles in archery, which then became the greatest warrior of Homer's Iliad after the Trojan War.",
     ],
-    image: 'sagittaruis.png',
-    hoverImage: 'sagittaruis-hover.png',
+    image: 'sagittaruis.gif',
   },
   capricornus: {
     title: 'Capricorn',
@@ -387,8 +378,7 @@ const zodiacContent = {
       'Capricorn is the tenth astrological sign in the zodiac, originating from the constellation of Capricornus. It spans the 270–300th degree of the zodiac, corresponding to celestial longitude.',
       "Capricornus, which means the Horned Goat, is usually depicted as a goat with a fish's tail for his hindquarters. It is one of the older constellations in the sky, dating back to Sumerian (pre Babylonian) times and is connected with the god Ea or Oannes.",
     ],
-    image: 'capricorn.png',
-    hoverImage: 'capricorn-hover.png',
+    image: 'capricorn.gif',
   },
   aquarius: {
     title: 'Aquarius',
@@ -398,7 +388,6 @@ const zodiacContent = {
       "Ganymede was the son of Tros, king of Troy. While tending to his father's flocks on Mount Ida, Ganymede was spotted by Jupiter. The king of gods became enamored of the boy and flew down to the mountain in the form of a large bird, whisking Ganymede away to the heavens. Ever since, the boy has served as cupbearer to the gods.",
     ],
     image: 'aquarius.gif',
-    hoverImage: 'aquarius-hover.png',
   },
   pisces: {
     title: 'Pisces',
@@ -407,8 +396,7 @@ const zodiacContent = {
       'Pisces is the twelvth astrological sign in the Zodiac, spaning between 330° to 360° of the zodiac.',
       '"Pisces" is the Latin word for "Fishes." It is one of the earliest zodiac signs on record, with the two fish appearing as far back as c. 2300 BCE in Egypt. In Greek mythology, Pisces represents the fish, in which Aphrodite (or Venus) and her son Eros (or Cupid) transformed in order to escape the monster Typhon.',
     ],
-    image: 'pisces.png',
-    hoverImage: 'pisces-hover.png',
+    image: 'pisces.gif',
   },
   orion: {
     title: 'Orion',
@@ -417,6 +405,6 @@ const zodiacContent = {
       'Orion is a prominent constellation located on the celestial equator and visible throughout the world. It is one of the most conspicuous and recognizable constellations in the night sky. It was named after Orion, a hunter in Greek mythology. Its brightest stars are Rigel and Betelgeuse, a blue-white and a red supergiant, respectively.',
       'In Greek mythology, Scorpius was a giant scorpion sent by Gaea the Earth to slay the giant Orion when he threatened to slay all the beasts of the world. Afterwards, Orion and the Scorpion were placed amongst the stars as constellations. The two opponents are never seen in the sky at the same time - for as one constellation rises, the other sets.'
     ],
-    image: 'orion.png',
+    image: 'orion.gif',
   }
 };
