@@ -255,7 +255,7 @@ footer {
 	position: fixed;
 	z-index: 1;
 	top: 0;
-	left: 0;
+	right: 0;
 	background-color: rgba(0,0,0, 0.9);
   background: #2043a2 url('img/bg-details.png') no-repeat top center;
   background-size: 100% 620px;
@@ -269,10 +269,8 @@ footer {
 
 .overlay-content {
 	position: relative;
-	/* top: 25%; */
 	width: 100%;
 	text-align: left;
-	/* margin-top: 30px; */
 }
 
 .overlay a {
@@ -291,8 +289,6 @@ footer {
 
 iframe {
   border-width: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .close-btn {
@@ -301,5 +297,6 @@ iframe {
   border: none;
   position: absolute;
   top: 20px;
-  right: 0px;
+  left: 0px;
+  z-index: 1;
 }
