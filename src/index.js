@@ -277,7 +277,8 @@ function lightUpConstellation() {
 }
 
 function lightUpSky() {
-  sendToServer('all');
+  ["aquarius","aries","cancer","gemini","leo","orion","pisces","taurus"]
+    .forEach(n => sendToServer(n));
 }
 
 function sendToServer(constellation) {
