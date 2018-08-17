@@ -216,7 +216,7 @@ function fetch() {
 
 function showZodiacContent(content) {
   const contentDiv = $('#zodiac-content');
-  contentDiv.append(`<button class="activate_button activate_button_${content.lightup}" onclick="sendToServer();"><img class="activate_button_img" src='img/activate-button.png'/></button>`);
+  contentDiv.append(`<button class="activate_button activate_button_${content.lightup}" onclick="lightUpConstellation();"><img class="activate_button_img" src='img/activate-button.png'/></button>`);
   contentDiv.append(`<div class="align-center"><img class='constellation_img' src='img/${content.image}'/></div>`);
   contentDiv.append(`<h2>${content.title}</h2>`);
   contentDiv.append(`<div class="details-text"><p>Duration: ${content.duration}</p><p>${content.text[0]}</p><p>${content.text[1]}</p></div>`);
@@ -271,8 +271,16 @@ function selectedConstellation() {
   return constellation || 'a';
 }
 
-function sendToServer() {
+function lightUpConstellation() {
   const constellation = selectedConstellation();
+  sendToServer(constellation);
+}
+
+function lightUpSky() {
+  sendToServer('all');
+}
+
+function sendToServer(constellation) {
   const colour = getRandomColor();
 
   console.log(`Lighting up ${constellation} with colour ${colour}`);
