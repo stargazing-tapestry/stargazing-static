@@ -315,7 +315,7 @@ const zodiacContent = {
       'Gemini is the third astrological sign in the zodiac, spaning the 60–90th degree of the zodiac. Gemini is represented by The Twins Castor and Pollux. The symbol of the twins is based on the Dioscuri, two mortals that were granted shared godhood after death.',
       'The constellation has been known as the twins since ancient times but the name Gemini is thought to originate with the Romans.',
     ],
-    image: 'taurus.gif',
+    image: 'gemini.gif',
   },
   cancer: {
     title: 'Cancer',
@@ -360,7 +360,7 @@ const zodiacContent = {
       'Scorpio is the eighth astrological sign in the Zodiac. It spans the 210–240th degree of the zodiac.',
       'In Greek mythology, Scorpius was a giant scorpion sent by Gaea the Earth to slay the giant Orion when he threatened to slay all the beasts of the world. Afterwards, Orion and the Scorpion were placed amongst the stars as constellations. The two opponents are never seen in the sky at the same time - for as one constellation rises, the other sets.',
     ],
-    image: 'scorpio.gif',
+    image: 'scorpius.gif',
   },
   sagittarius: {
     title: 'Sagittaruis',
