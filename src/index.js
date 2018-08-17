@@ -412,7 +412,7 @@ const zodiacContent = {
   },
   orion: {
     title: 'Orion',
-    duration: 'N/A'
+    duration: 'N/A',
     text: [
       'Orion is a prominent constellation located on the celestial equator and visible throughout the world. It is one of the most conspicuous and recognizable constellations in the night sky. It was named after Orion, a hunter in Greek mythology. Its brightest stars are Rigel and Betelgeuse, a blue-white and a red supergiant, respectively.',
       'In Greek mythology, Scorpius was a giant scorpion sent by Gaea the Earth to slay the giant Orion when he threatened to slay all the beasts of the world. Afterwards, Orion and the Scorpion were placed amongst the stars as constellations. The two opponents are never seen in the sky at the same time - for as one constellation rises, the other sets.'
