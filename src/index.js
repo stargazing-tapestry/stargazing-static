@@ -216,7 +216,7 @@ function fetch() {
 
 function showZodiacContent(content) {
   const contentDiv = $('#zodiac-content');
-  contentDiv.append(`<button class="activate_button" onclick="sendToServer();"><img class="activate_button_img" src='img/activate-button.png'/></button>`);
+  contentDiv.append(`<button class="activate_button activate_button_${content.lightup}" onclick="sendToServer();"><img class="activate_button_img" src='img/activate-button.png'/></button>`);
   contentDiv.append(`<div class="align-center"><img class='constellation_img' src='img/${content.image}'/></div>`);
   contentDiv.append(`<h2>${content.title}</h2>`);
   contentDiv.append(`<div class="details-text"><p>Duration: ${content.duration}</p><p>${content.text[0]}</p><p>${content.text[1]}</p></div>`);
@@ -298,6 +298,7 @@ const zodiacContent = {
       "Aries the Ram has retained importance despite being a rather small constellation. It traditionally leads the 'flock' of the Zodiac. In ancient Greek, the Sun was placed among its stars at the Vernal Equinox, which then marked the start of the calendar year as well as the arrival of Spring.",
     ],
     image: 'aries.gif',
+    lightup: 'visible',
   },
   taurus: {
     title: 'Taurus',
@@ -307,6 +308,7 @@ const zodiacContent = {
       'It is an ancient constellation, created by the Sumarians around 3000 B.C., to mark where the sun would be in the sky at the Spring Equinox. At that time the bull was a powerful fertility symbol, so was a very appropriate symbol for the return of Spring.',
     ],
     image: 'taurus.gif',
+    lightup: 'visible',
   },
   gemini: {
     title: 'Gemini',
@@ -316,6 +318,7 @@ const zodiacContent = {
       'The constellation has been known as the twins since ancient times but the name Gemini is thought to originate with the Romans.',
     ],
     image: 'gemini.gif',
+    lightup: 'visible',
   },
   cancer: {
     title: 'Cancer',
@@ -325,6 +328,7 @@ const zodiacContent = {
       "Cancer the Crab is the faintest of the Zodiac constellations, but it once had a position of importance in the sky. During the time of ancient Greece the Sun reached it's most northerly position in the sky in Cancer, and this is why the Tropic of Cancer was named so.",
     ],
     image: 'cancer.gif',
+    lightup: 'visible',
   },
   leo: {
     title: 'Leo',
@@ -334,6 +338,7 @@ const zodiacContent = {
       'In Greek mythology, Leo represented the Nemean Lion, which came down to Earth from the Moon and rampaged across the country-side until Hercules killed and skinned it as one of his Twelve Tasks. Zeus then returned the lion to the stars.',
     ],
     image: 'leo.gif',
+    lightup: 'visible',
   },
   virgo: {
     title: 'Virgo',
@@ -343,6 +348,7 @@ const zodiacContent = {
       'Virgo was drawn in the Egyptian zodiac and was said to represent the goddess Isis. To the Romans she was Astrea, the goddess of Justice, holding the Scales of Libra in her hand. The Greeks connected her with Ceres and Persephone, from a well known myth that describes the cycle of the harvest.',
     ],
     image: 'virgo.gif',
+    lightup: 'hidden',
   },
   libra: {
     title: 'Libra',
@@ -352,6 +358,7 @@ const zodiacContent = {
       'The Scales were held by the Roman goddess of Justice, Astreae (Virgo) who lies directly to the west of Libra. She would use the Scales to weigh the souls of men on their way to the Underworld, to detemine whether they would have eternal pleasure or pain.',
     ],
     image: 'libra.gif',
+    lightup: 'hidden',
   },
   scorpius: {
     title: 'Scorpio',
@@ -361,6 +368,7 @@ const zodiacContent = {
       'In Greek mythology, Scorpius was a giant scorpion sent by Gaea the Earth to slay the giant Orion when he threatened to slay all the beasts of the world. Afterwards, Orion and the Scorpion were placed amongst the stars as constellations. The two opponents are never seen in the sky at the same time - for as one constellation rises, the other sets.',
     ],
     image: 'scorpius.gif',
+    lightup: 'hidden',
   },
   sagittarius: {
     title: 'Sagittaruis',
@@ -370,6 +378,7 @@ const zodiacContent = {
       "The symbol of the archer is based on the centaur Chiron, who mentored the Greek hero Achilles in archery, which then became the greatest warrior of Homer's Iliad after the Trojan War.",
     ],
     image: 'sagittaruis.gif',
+    lightup: 'hidden',
   },
   capricornus: {
     title: 'Capricorn',
@@ -379,6 +388,7 @@ const zodiacContent = {
       "Capricornus, which means the Horned Goat, is usually depicted as a goat with a fish's tail for his hindquarters. It is one of the older constellations in the sky, dating back to Sumerian (pre Babylonian) times and is connected with the god Ea or Oannes.",
     ],
     image: 'capricorn.gif',
+    lightup: 'hidden',
   },
   aquarius: {
     title: 'Aquarius',
@@ -388,6 +398,7 @@ const zodiacContent = {
       "Ganymede was the son of Tros, king of Troy. While tending to his father's flocks on Mount Ida, Ganymede was spotted by Jupiter. The king of gods became enamored of the boy and flew down to the mountain in the form of a large bird, whisking Ganymede away to the heavens. Ever since, the boy has served as cupbearer to the gods.",
     ],
     image: 'aquarius.gif',
+    lightup: 'visible',
   },
   pisces: {
     title: 'Pisces',
@@ -397,6 +408,7 @@ const zodiacContent = {
       '"Pisces" is the Latin word for "Fishes." It is one of the earliest zodiac signs on record, with the two fish appearing as far back as c. 2300 BCE in Egypt. In Greek mythology, Pisces represents the fish, in which Aphrodite (or Venus) and her son Eros (or Cupid) transformed in order to escape the monster Typhon.',
     ],
     image: 'pisces.gif',
+    lightup: 'visible',
   },
   orion: {
     title: 'Orion',
@@ -405,6 +417,7 @@ const zodiacContent = {
       'Orion is a prominent constellation located on the celestial equator and visible throughout the world. It is one of the most conspicuous and recognizable constellations in the night sky. It was named after Orion, a hunter in Greek mythology. Its brightest stars are Rigel and Betelgeuse, a blue-white and a red supergiant, respectively.',
       'In Greek mythology, Scorpius was a giant scorpion sent by Gaea the Earth to slay the giant Orion when he threatened to slay all the beasts of the world. Afterwards, Orion and the Scorpion were placed amongst the stars as constellations. The two opponents are never seen in the sky at the same time - for as one constellation rises, the other sets.'
     ],
-    image: 'orion.gif',
+    image: 'orion.png',
+    lightup: 'visible',
   }
 };
