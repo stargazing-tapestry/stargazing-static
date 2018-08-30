@@ -204,8 +204,9 @@ function fetch() {
   if (content) {
     showContent(content);
     gtag('event', 'search', {
-      'event_category': 'success',
-      'event_label': which,
+      'event_category': which,
+      'event_label': 'success',
+      'value': 1
     });
   } else {
     const error = document.createElement('p');
@@ -216,8 +217,9 @@ function fetch() {
     document.getElementById('error').appendChild(error);
 
     gtag('event', 'search', {
-      'event_category': 'error',
-      'event_label': which
+      'event_category': which,
+      'event_label': 'error',
+      'value': 1
     });
   }
 }
@@ -273,8 +275,9 @@ function lightUpConstellation() {
   const constellation = selectedConstellation();
   sendToServer(constellation);
   gtag('event', 'click', {
-    'event_category': 'light',
-    'event_label': constellation
+    'event_category': constellation,
+    'event_label': 'lightUp',
+    'value': 1
   });
 }
 
