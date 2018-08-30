@@ -286,7 +286,7 @@ footer {
 	transition: 0.5s;
 }
 
-.bigcrunch-visible {
+.error-visible {
   height: 100%;
   margin-top: 50px;
 }
