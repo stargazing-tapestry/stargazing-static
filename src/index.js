@@ -199,9 +199,15 @@ function fetch() {
   const theSearchTerm = document.getElementById('search-input');
 
   openDetails();
-  const content = allContent[theSearchTerm.value.toLowerCase().replace(/\s/g, '')];
+  const which = theSearchTerm.value.toLowerCase().replace(/\s/g, '');
+  const content = allContent[which];
   if (content) {
     showContent(content);
+    gtag('event', 'search', {
+      'event_category': 'search',
+      'event_label': 'success',
+      'value': which
+    });
   } else {
     const error = document.createElement('p');
     error.innerHTML = 'Sorry, we cannot seem to find that constellation';
@@ -209,6 +215,12 @@ function fetch() {
     document.getElementById('error').innerHTML = '';
     document.getElementById('error').classList.add('error-visible');
     document.getElementById('error').appendChild(error);
+
+    gtag('event', 'search', {
+      'event_category': 'search',
+      'event_label': 'error',
+      'value': which
+    });
   }
 }
 
@@ -262,6 +274,11 @@ function selectedConstellation() {
 function lightUpConstellation() {
   const constellation = selectedConstellation();
   sendToServer(constellation);
+  gtag('event', 'click', {
+    'event_category': 'light',
+    'event_label': 'ajax',
+    'value': constellation
+  });
 }
 
 function lightUpSky() {
