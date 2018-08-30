@@ -204,9 +204,8 @@ function fetch() {
   if (content) {
     showContent(content);
     gtag('event', 'search', {
-      'event_category': 'search',
-      'event_label': 'success',
-      'value': which
+      'event_category': 'success',
+      'event_label': which,
     });
   } else {
     const error = document.createElement('p');
@@ -217,9 +216,8 @@ function fetch() {
     document.getElementById('error').appendChild(error);
 
     gtag('event', 'search', {
-      'event_category': 'search',
-      'event_label': 'error',
-      'value': which
+      'event_category': 'error',
+      'event_label': which
     });
   }
 }
@@ -276,8 +274,7 @@ function lightUpConstellation() {
   sendToServer(constellation);
   gtag('event', 'click', {
     'event_category': 'light',
-    'event_label': 'ajax',
-    'value': constellation
+    'event_label': constellation
   });
 }
 
